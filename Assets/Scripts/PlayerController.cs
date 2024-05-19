@@ -29,7 +29,14 @@ public class Player : MonoBehaviour
         {
             Powerup = true;
             Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
         }
+    }
+
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(7);
+        Powerup = false;
     }
     private void OnCollisionEnter(Collision collision)
     {
