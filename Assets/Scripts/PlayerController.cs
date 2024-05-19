@@ -30,4 +30,11 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy") && Powerup)
+        {
+            Debug.Log("Collided with: " + collision.gameObject.name + " with powerup set to " + Powerup);
+        }
+    }
 }
